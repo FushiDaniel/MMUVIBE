@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-        <title>MMU ViBE</title>
+    <title>MMU ViBE</title>
     <style>
         * {
             margin: 0;
@@ -127,9 +127,9 @@
         }
 
         .blur-bg {
-            position: absolute;
-            width: 200%;
-            height: 200%;
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
             background-image: linear-gradient(
                 rgba(0, 0, 0, 0.2),
                 rgba(0, 0, 0, 0.2)
@@ -137,9 +137,8 @@
             background-size: cover;
             background-position: center;
             filter: blur(100px) opacity(0.5);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            top: 0;
+            left: 0;
             z-index: 1;
         }
 
@@ -294,6 +293,49 @@
             position: relative;
             z-index: 2;
         }
+
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                width: 100%;
+                overflow-x: hidden;
+            }
+
+            .hero {
+                width: 100%;
+                overflow-x: hidden;
+                padding: 4rem 1.5rem 2rem;
+            }
+
+            .phone-container {
+                width: 100%;
+                overflow: hidden;
+            }
+
+            .bottom-overlay {
+                width: 100%;
+                left: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links a:not(.download-btn) {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero {
+                padding: 4rem 1rem 2rem;
+            }
+        }
     </style>
     <script 
         type="module" 
@@ -315,7 +357,7 @@
 
     <main class="hero">
         <div class="release-badge">
-            ✨ Launching Soon - Get Ready! →
+            ✨ Finished Soon - Get Ready! →
         </div>
         
         <h1>
@@ -331,7 +373,7 @@
         <div class="phone-container">
             <div class="blur-bg"></div>
             <img 
-                src="dummyscreen.webp" 
+                src="dummyscreen.png" 
                 alt="RoomAR App Demo" 
                 class="phone-mockup"
             >

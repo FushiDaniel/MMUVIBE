@@ -223,6 +223,52 @@
             margin: 1rem;
             border-radius: 5px;
         }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .hero {
+                padding: 4rem 1.5rem 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+
+            .phone-mockup {
+                max-width: 300px;
+            }
+
+            .model-section h2 {
+                font-size: 1.5rem;
+                padding: 0 1rem;
+            }
+
+            .model-section p {
+                padding: 1rem !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links a:not(.download-btn) {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
     </style>
     <script 
         type="module" 
@@ -248,13 +294,13 @@
         </div>
         
         <h1>
-            <span>Experience Rooms</span><br>
-            Like Never Before
+            <span>Book Room</span><br>
+            With Immersive Experience
         </h1>
         
         <p>
-            Step into the future of room booking! Immerse yourself in stunning AR previews 
-            and discover your perfect space before you even step inside.
+            Discover and reserve your ideal space through our innovative AR technology. 
+            Preview rooms in stunning detail before making your choice.
         </p>
 
         <div class="phone-container">
@@ -284,6 +330,8 @@
             const opacity = Math.min(window.scrollY / 80, 0.8);
             nav.style.backgroundColor = `rgba(255, 255, 255, ${opacity})`;
         });
+
+        
     </script>
 </body>
 </html>

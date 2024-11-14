@@ -284,42 +284,6 @@
             const opacity = Math.min(window.scrollY / 80, 0.8);
             nav.style.backgroundColor = `rgba(255, 255, 255, ${opacity})`;
         });
-
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'F12' || 
-                (e.ctrlKey && e.shiftKey && e.key === 'I') || 
-                (e.ctrlKey && e.shiftKey && e.key === 'J') || 
-                (e.ctrlKey && e.shiftKey && e.key === 'C') ||
-                (e.ctrlKey && e.key === 'u')) {
-                e.preventDefault();
-            }
-        });
-
-        setInterval(function() {
-            const devtools = /./;
-            devtools.toString = function() {
-                window.location.reload();
-            }
-        }, 100);
-
-        (function() {
-            let threshold = 160;
-            let widthThreshold = window.outerWidth - window.innerWidth > threshold;
-            let heightThreshold = window.outerHeight - window.innerHeight > threshold;
-            
-            if (widthThreshold || heightThreshold) {
-                window.location.reload();
-            }
-            
-            window.addEventListener('resize', function() {
-                widthThreshold = window.outerWidth - window.innerWidth > threshold;
-                heightThreshold = window.outerHeight - window.innerHeight > threshold;
-                
-                if (widthThreshold || heightThreshold) {
-                    window.location.reload();
-                }
-            });
-        })();
     </script>
 </body>
 </html>

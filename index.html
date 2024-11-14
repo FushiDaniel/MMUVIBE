@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MMU ViBE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>RoomAR - Room Reservation with AR</title>
     <style>
         * {
             margin: 0;
@@ -16,6 +16,9 @@
             background: #fff;
             min-height: 100vh;
             overflow-x: hidden;
+            position: relative;
+            width: 100%;
+            max-width: 100%;
         }
 
         nav {
@@ -92,6 +95,7 @@
             font-size: 4rem;
             margin-bottom: 0.75rem;
             line-height: 1.1;
+            position: relative;
         }
 
         .hero h1 span {
@@ -110,6 +114,8 @@
             margin-top: 4rem;
             position: relative;
             padding-bottom: 4rem; 
+            width: 100%;
+            overflow: visible;
         }
 
         .phone-mockup {
@@ -124,11 +130,13 @@
             position: absolute;
             width: 200%;
             height: 200%;
-            background: linear-gradient(45deg, 
-                rgba(200,255,200,0.5), 
-                rgba(200,200,255,0.5)
-            );
-            filter: blur(100px);
+            background-image: linear-gradient(
+                rgba(0, 0, 0, 0.2),
+                rgba(0, 0, 0, 0.2)
+            ), url('bg.webp');
+            background-size: cover;
+            background-position: center;
+            filter: blur(100px) opacity(0.5);
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
@@ -147,7 +155,7 @@
             position: fixed;
             bottom: 0;
             left: 0;
-            width: 100%;
+            width: 100vw;
             height: 180px;
             z-index: 3;
             pointer-events: none;
@@ -269,6 +277,23 @@
                 font-size: 2rem;
             }
         }
+
+        .gradient-text {
+            background: linear-gradient(
+                45deg,
+                #4B9CD3,  
+                #6B5B95,  
+                #B33771,  
+                #FF4D4D   
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+            position: relative;
+            z-index: 2;
+        }
     </style>
     <script 
         type="module" 
@@ -294,8 +319,8 @@
         </div>
         
         <h1>
-            <span>Book Room</span><br>
-            With Immersive Experience
+            Book Room<br>
+            With <span class="gradient-text">Immersive</span> Experience
         </h1>
         
         <p>
@@ -306,7 +331,7 @@
         <div class="phone-container">
             <div class="blur-bg"></div>
             <img 
-                src="dummyscreen.webp" 
+                src="dummyscreen.png" 
                 alt="RoomAR App Demo" 
                 class="phone-mockup"
             >
